@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+div.lexical{
+    @apply font-serif 
+}
+
+div.lexical *{
+    @apply mt-4
+}
+
+div.lexical{
+    @apply flex flex-col gap-2
+}
+div.lexical blockquote{
+    @apply p-5 flex flex-col items-start justify-start bg-[#f5f5f5] text-xl rounded-lg italic
+}
+
+div.lexical h2{
+    @apply text-2xl font-bold
+}
+
+div.lexical h3{
+    @apply text-xl font-bold
+}
+
+div.lexical ol{
+    @apply list-decimal
+}
