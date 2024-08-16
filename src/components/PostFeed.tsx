@@ -7,9 +7,7 @@ const PostFeed = async () => {
   let posts: Post[] | null = null
 
   try {
-    console.log('Initalizing fetching...')
     posts = await fetchDocs<Post[]>({ collection: 'posts', draft: true })
-    console.log(posts[0])
   } catch (error) {
     console.log(error)
   }

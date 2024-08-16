@@ -3,6 +3,7 @@ export const PRODUCTS = `
     Products{
       docs {
         id
+        slug
         title
         blurb
         details
