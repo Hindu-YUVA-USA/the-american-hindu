@@ -6,15 +6,46 @@ import { useEffect, useState } from 'react'
 
 const Nav: React.FC<{}> = () => {
   const { status } = useAuth()
-  const [domLoaded, setDomLoaded] = useState(false)
+  const [domLoaded, setDomLoaded] = useState<boolean>(false)
+  const [viewModal, setViewModal] = useState<boolean>(false)
 
   useEffect(() => {
     setDomLoaded(true)
   }, [])
   return (
     <section className="border w-full flex items-center justify-between p-10">
+      {viewModal ? (
+        // modal
+        <div
+          onClick={() => {
+            setViewModal(false)
+          }}
+          className="absolute bg-white left-5 w-40 top-20 rounded-md shadow-lg z-50 flex flex-col items-center justify-center"
+        >
+          <Link
+            className="w-full h-16 border flex flex-grow-0 items-center justify-center"
+            href="/cart"
+          >
+            <h1>Cart</h1>
+          </Link>
+          <Link
+            className="w-full h-16 border flex flex-grow-0 items-center justify-center"
+            href="/store"
+          >
+            <h1>Store</h1>
+          </Link>
+          <Link
+            className="w-full h-16 border flex flex-grow-0 items-center justify-center"
+            href="/about"
+          >
+            <h1>About</h1>
+          </Link>
+        </div>
+      ) : (
+        <></>
+      )}
       {/* Menu Bar */}
-      <div>
+      <div onClick={() => setViewModal(!viewModal)}>
         <Image
           className="hover:cursor-pointer"
           src="/icons/menu.svg"
